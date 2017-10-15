@@ -30,8 +30,7 @@
 #include <ql/experimental/commodities/exchangecontract.hpp>
 #include <ql/currency.hpp>
 #include <ql/math/interpolations/forwardflatinterpolation.hpp>
-#include <ql/time/daycounters/actual365fixed.hpp>
-
+#include <ql/time/daycounters/all.hpp>
 namespace QuantLib {
 
     //! Commodity term structure
@@ -76,6 +75,8 @@ namespace QuantLib {
                const Date& d,
                const boost::shared_ptr<ExchangeContracts>& exchangeContracts,
                Integer nearbyOffset) const;
+		Real price(
+			const Date& date) const;
         Real basisOfPrice(const Date& d) const;
         Date underlyingPriceDate(
                 const Date& date,
@@ -169,6 +170,21 @@ namespace QuantLib {
         }
         return priceValue + basisOfPriceImpl(t);
     }
+
+	// gets a price 
+	inline Real CommodityCurve::price(
+		const Date& date) const {
+		Time t = timeFromReference(date);
+		Real priceValue = 0;
+		try {
+			priceValue = priceImpl(t);
+		}
+		catch (const std::exception& e) {
+			QL_FAIL("error retrieving price for curve [" << name() << "]: "
+				<< e.what());
+		}
+		return priceValue + basisOfPriceImpl(t);
+	}
 
     // get the date for the underlying price, in the case of nearby
     // curves, rolls on the underlying contract expiry

@@ -65,6 +65,7 @@ namespace QuantLib {
         //! unit used for triangulation when required
         const UnitOfMeasure& triangulationUnitOfMeasure() const;
         //@}
+		static std::map<std::string, UnitOfMeasure::Type> StringToTypeMap;
       protected:
         struct Data;
         boost::shared_ptr<Data> data_;
@@ -145,7 +146,7 @@ namespace QuantLib {
             data_ = data;
         }
     };
-
+	
 }
 
 

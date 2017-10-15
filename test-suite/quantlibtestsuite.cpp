@@ -80,6 +80,7 @@
 #include "cliquetoption.hpp"
 #include "cms.hpp"
 #include "commodityunitofmeasure.hpp"
+#include "commoditycurve.hpp"
 #include "compoundoption.hpp"
 #include "convertiblebonds.hpp"
 #include "covariance.hpp"
@@ -500,6 +501,7 @@ test_suite* init_unit_test_suite(int, char* []) {
     // tests for deprecated classes
     test->add(LiborMarketModelTest::suite(speed));
     test->add(LiborMarketModelProcessTest::suite(speed));
+	test->add(CommodityCurveTest::suite());
 
     test->add(QUANTLIB_TEST_CASE(stopTimer));
 

@@ -48,6 +48,7 @@ namespace QuantLib {
                     const Handle<YieldTermStructure>& receiveLegTermStructure,
                     const Handle<YieldTermStructure>& discountTermStructure);
 
+
         bool isExpired() const;
         Integer payReceive() const { return payReceive_; }
         const Money& fixedPrice() const { return fixedPrice_; }

@@ -22,6 +22,9 @@
 
 namespace QuantLib {
 
+	std::map<std::string, UnitOfMeasure::Type> UnitOfMeasure::StringToTypeMap = { { "0", UnitOfMeasure::Type::Mass } ,{ "1", UnitOfMeasure::Type::Volume },{ "2", UnitOfMeasure::Type::Energy },{ "3", UnitOfMeasure::Type::Quantity } };
+
+
     std::ostream& operator<<(std::ostream& out, const UnitOfMeasure& c) {
         if (!c.empty())
             return out << c.code();

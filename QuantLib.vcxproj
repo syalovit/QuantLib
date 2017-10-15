@@ -136,6 +136,14 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QuantLib-$(qlCompilerTag)-mt</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">QuantLib-$(qlCompilerTag)-x64-mt</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>E:\work\src\phoenix\boost_1_65_1\;E:\work\src\phoenix\boost_1_65_1\;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\work\src\phoenix\boost_1_65_1\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>E:\work\src\phoenix\boost_1_65_1\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>E:\work\src\phoenix\boost_1_65_1\stage\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
@@ -507,9 +515,12 @@
     <ClInclude Include="ql\indexes\ibor\bbsw.hpp" />
     <ClInclude Include="ql\indexes\ibor\bkbm.hpp" />
     <ClInclude Include="ql\indexes\ibor\nzocr.hpp" />
+    <ClInclude Include="ql\instruments\makecds.hpp" />
+    <ClInclude Include="ql\math\matrixutilities\gmres.hpp" />
     <ClInclude Include="ql\math\polynomialmathfunction.hpp" />
     <ClInclude Include="ql\math\pascaltriangle.hpp" />
     <ClInclude Include="ql\methods\finitedifferences\operators\fdmornsteinuhlenbeckop.hpp" />
+    <ClInclude Include="ql\pricingengines\credit\isdacdsengine.hpp" />
     <ClInclude Include="ql\rebatedexercise.hpp" />
     <ClInclude Include="ql\experimental\finitedifferences\dynprogvppintrinsicvalueengine.hpp" />
     <ClInclude Include="ql\experimental\finitedifferences\fdextoujumpvanillaengine.hpp" />
@@ -782,7 +793,6 @@
     <ClInclude Include="ql\instruments\inflationcapfloor.hpp" />
     <ClInclude Include="ql\instruments\lookbackoption.hpp" />
     <ClInclude Include="ql\instruments\makecapfloor.hpp" />
-    <ClInclude Include="ql\instruments\makecds.hpp" />
     <ClInclude Include="ql\instruments\makecms.hpp" />
     <ClInclude Include="ql\instruments\makeois.hpp" />
     <ClInclude Include="ql\instruments\makeswaption.hpp" />
@@ -894,7 +904,6 @@
     <ClInclude Include="ql\math\matrixutilities\choleskydecomposition.hpp" />
     <ClInclude Include="ql\math\matrixutilities\factorreduction.hpp" />
     <ClInclude Include="ql\math\matrixutilities\getcovariance.hpp" />
-    <ClInclude Include="ql\math\matrixutilities\gmres.hpp" />
     <ClInclude Include="ql\math\matrixutilities\pseudosqrt.hpp" />
     <ClInclude Include="ql\math\matrixutilities\qrdecomposition.hpp" />
     <ClInclude Include="ql\math\matrixutilities\svd.hpp" />
@@ -1392,7 +1401,6 @@
     <ClInclude Include="ql\pricingengines\swap\treeswapengine.hpp" />
     <ClInclude Include="ql\pricingengines\credit\all.hpp" />
     <ClInclude Include="ql\pricingengines\credit\integralcdsengine.hpp" />
-    <ClInclude Include="ql\pricingengines\credit\isdacdsengine.hpp" />
     <ClInclude Include="ql\pricingengines\credit\midpointcdsengine.hpp" />
     <ClInclude Include="ql\pricingengines\inflation\all.hpp" />
     <ClInclude Include="ql\pricingengines\inflation\inflationcapfloorengines.hpp" />
@@ -1802,10 +1810,13 @@
     <ClCompile Include="ql\experimental\models\hestonslvmcmodel.cpp" />
     <ClCompile Include="ql\experimental\models\normalclvmodel.cpp" />
     <ClCompile Include="ql\experimental\models\squarerootclvmodel.cpp" />
+    <ClCompile Include="ql\instruments\makecds.cpp" />
+    <ClCompile Include="ql\math\matrixutilities\gmres.cpp" />
     <ClCompile Include="ql\math\polynomialmathfunction.cpp" />
     <ClCompile Include="ql\math\pascaltriangle.cpp" />
     <ClCompile Include="ql\methods\finitedifferences\operators\fdmornsteinuhlenbeckop.cpp" />
     <ClCompile Include="ql\patterns\observable.cpp" />
+    <ClCompile Include="ql\pricingengines\credit\isdacdsengine.cpp" />
     <ClCompile Include="ql\rebatedexercise.cpp" />
     <ClInclude Include="ql\experimental\finitedifferences\all.hpp" />
     <ClCompile Include="ql\experimental\finitedifferences\dynprogvppintrinsicvalueengine.cpp" />
@@ -1981,7 +1992,6 @@
     <ClCompile Include="ql\instruments\inflationcapfloor.cpp" />
     <ClCompile Include="ql\instruments\lookbackoption.cpp" />
     <ClCompile Include="ql\instruments\makecapfloor.cpp" />
-    <ClCompile Include="ql\instruments\makecds.cpp" />
     <ClCompile Include="ql\instruments\makecms.cpp" />
     <ClCompile Include="ql\instruments\makeois.cpp" />
     <ClCompile Include="ql\instruments\makeswaption.cpp" />
@@ -2043,7 +2053,6 @@
     <ClCompile Include="ql\math\matrixutilities\choleskydecomposition.cpp" />
     <ClCompile Include="ql\math\matrixutilities\factorreduction.cpp" />
     <ClCompile Include="ql\math\matrixutilities\getcovariance.cpp" />
-    <ClCompile Include="ql\math\matrixutilities\gmres.cpp" />
     <ClCompile Include="ql\math\matrixutilities\pseudosqrt.cpp" />
     <ClCompile Include="ql\math\matrixutilities\qrdecomposition.cpp" />
     <ClCompile Include="ql\math\matrixutilities\svd.cpp" />
@@ -2342,7 +2351,7 @@
     <ClCompile Include="ql\pricingengines\vanilla\baroneadesiwhaleyengine.cpp" />
     <ClCompile Include="ql\pricingengines\vanilla\batesengine.cpp" />
     <ClCompile Include="ql\pricingengines\vanilla\bjerksundstenslandengine.cpp" />
-    <ClCompile Include="ql\pricingengines\vanilla\coshestonengine.cpp" />    
+    <ClCompile Include="ql\pricingengines\vanilla\coshestonengine.cpp" />
     <ClCompile Include="ql\pricingengines\vanilla\discretizedvanillaoption.cpp" />
     <ClCompile Include="ql\pricingengines\vanilla\hestonexpansionengine.cpp" />
     <ClCompile Include="ql\pricingengines\vanilla\fdvanillaengine.cpp" />
@@ -2376,7 +2385,6 @@
     <ClCompile Include="ql\pricingengines\swap\discretizedswap.cpp" />
     <ClCompile Include="ql\pricingengines\swap\treeswapengine.cpp" />
     <ClCompile Include="ql\pricingengines\credit\integralcdsengine.cpp" />
-    <ClCompile Include="ql\pricingengines\credit\isdacdsengine.cpp" />
     <ClCompile Include="ql\pricingengines\credit\midpointcdsengine.cpp" />
     <ClCompile Include="ql\pricingengines\inflation\inflationcapfloorengines.cpp" />
     <ClCompile Include="ql\quotes\eurodollarfuturesquote.cpp" />

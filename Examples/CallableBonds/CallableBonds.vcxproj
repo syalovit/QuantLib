@@ -152,6 +152,10 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CallableBonds-$(qlCompilerTag)-mt</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CallableBonds-$(qlCompilerTag)-x64-mt</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>E:\work\src\phoenix\boost_1_65_1\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>E:\work\src\phoenix\boost_1_65_1\stage\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
       <TypeLibraryName>.\build\$(qlCompilerTag)\$(Platform)\$(Configuration)\CallableBonds.tlb</TypeLibraryName>

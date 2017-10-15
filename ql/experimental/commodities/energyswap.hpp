@@ -40,6 +40,7 @@ namespace QuantLib {
                    const CommodityType& commodityType,
                    const boost::shared_ptr<SecondaryCosts>& secondaryCosts);
 
+
         bool isExpired() const;
         const Calendar& calendar() const { return calendar_; }
         const Currency& payCurrency() const { return payCurrency_; }

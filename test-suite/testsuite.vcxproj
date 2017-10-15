@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug (static runtime)|Win32">
@@ -168,6 +168,10 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">QuantLib-test-suite-$(qlCompilerTag)-x64-mt-gd</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug (static runtime)|Win32'">QuantLib-test-suite-$(qlCompilerTag)-mt-sgd</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug (static runtime)|x64'">QuantLib-test-suite-$(qlCompilerTag)-x64-mt-sgd</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>E:\work\src\phoenix\boost_1_65_1\;E:\work\src\phoenix\boost_1_65_1\;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\work\src\phoenix\boost_1_65_1\stage\lib;E:\work\src\phoenix\boost_1_65_1\stage\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug (static runtime)|Win32'">
     <Midl>
@@ -654,6 +658,7 @@
     <ClCompile Include="chooseroption.cpp" />
     <ClCompile Include="cliquetoption.cpp" />
     <ClCompile Include="cms.cpp" />
+    <ClCompile Include="commoditycurve.cpp" />
     <ClCompile Include="commodityunitofmeasure.cpp" />
     <ClCompile Include="compoundoption.cpp" />
     <ClCompile Include="convertiblebonds.cpp" />
@@ -797,6 +802,7 @@
     <ClInclude Include="chooseroption.hpp" />
     <ClInclude Include="cliquetoption.hpp" />
     <ClInclude Include="cms.hpp" />
+    <ClInclude Include="commoditycurve.hpp" />
     <ClInclude Include="commodityunitofmeasure.hpp" />
     <ClInclude Include="compoundoption.hpp" />
     <ClInclude Include="convertiblebonds.hpp" />
@@ -889,7 +895,6 @@
     <ClInclude Include="schedule.hpp" />
     <ClInclude Include="shortratemodels.hpp" />
     <ClInclude Include="solvers.hpp" />
-    <ClInclude Include="speedlevel.hpp" />
     <ClInclude Include="spreadoption.hpp" />
     <ClInclude Include="squarerootclvmodel.hpp" />
     <ClInclude Include="stats.hpp" />
